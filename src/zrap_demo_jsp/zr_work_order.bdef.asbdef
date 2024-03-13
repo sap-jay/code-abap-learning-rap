@@ -1,0 +1,61 @@
+managed implementation in class ZBP_R_WORK_ORDER unique;
+strict ( 2 );
+with draft;
+define behavior for ZR_WORK_ORDER alias workorder
+persistent table zwork_order
+draft table ZWORK_ORDER_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+
+{
+  field ( readonly )
+   GuID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+  field ( numbering : managed )
+   GuID;
+
+
+  create;
+  update;
+  delete;
+
+  action sendInformation;
+
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZWORK_ORDER
+  {
+    GuID = guid;
+    OrigLand = orig_land;
+    OrigWerks = orig_werks;
+    WorkOrder = work_order;
+    WoItemNo = wo_item_no;
+    Matnr = matnr;
+    MatGtin = mat_gtin;
+    MatRevlv = mat_revlv;
+    MatUnit = mat_unit;
+    MatCharg = mat_charg;
+    MatSernr = mat_sernr;
+    MatSernp = mat_sernp;
+    MatVfdat = mat_vfdat;
+    MatHsdat = mat_hsdat;
+    MatCoo = mat_coo;
+    MatPom = mat_pom;
+    MatMaktx = mat_maktx;
+    Activity = activity;
+    ActQpa = act_qpa;
+    ActUnit = act_unit;
+    CreatedBy = created_by;
+    CreatedAt = created_at;
+    LastChangedBy = last_changed_by;
+    LastChangedAt = last_changed_at;
+    LocalLastChangedAt = local_last_changed_at;
+  }
+}

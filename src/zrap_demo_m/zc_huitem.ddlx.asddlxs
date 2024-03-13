@@ -1,0 +1,47 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Stock',
+                typeNamePlural: 'Stocks',
+                title: { type: #STANDARD, value: 'GuidStock' } } }
+annotate view ZC_HUItem with
+{
+  @UI.facet: [ { id:            'Stock',
+             purpose:       #STANDARD,
+             type:          #IDENTIFICATION_REFERENCE,
+             label:         'HU Line item',
+             position:      10 }  ]
+
+  @UI: { identification: [ { position: 10, label: 'Stock UUID'  } ] }
+
+  GuidStock;
+  @UI.hidden: true
+  GuidHu;
+  @UI: { lineItem:       [ { position: 20, label: 'Material' } ],
+        identification: [ { position: 20, label: 'Material' } ] }
+  Matnr;
+  @UI: { lineItem:       [ { position: 30, label: 'Batch' } ],
+       identification: [ { position: 30, label: 'Batch' } ] }
+  Charg;
+  @UI: { lineItem:       [ { position: 40, label: 'Quantity' } ],
+        identification: [ { position: 40, label: 'Quantity' } ] }
+  Quan;
+  @UI: { lineItem:       [ { position: 50, label: 'Unit' } ],
+       identification: [ { position: 50, label: 'Unit' } ] }
+  Meins;
+  @UI: { lineItem:       [ { position: 60, label: 'Currency' } ],
+       identification: [ { position: 60, label: 'Currency' } ] }
+  CurrencyCode;
+  @UI: { lineItem:       [ { position: 70, label: 'Document ID' } ],
+       identification: [ { position: 70, label: 'Document ID' } ] }
+  Docid;
+  @UI: { lineItem:       [ { position: 80, label: 'Document Item ID' } ],
+        identification: [ { position: 80, label: 'Document Item ID' } ] }
+  Docitmid;
+  @UI.hidden: true
+  CreatedBy;
+  @UI.hidden: true
+  LastChangedBy;
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+}

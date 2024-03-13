@@ -1,0 +1,19 @@
+@EndUserText.label: 'Access Control For ZI_HUHEADER'
+@MappingRole: true
+define role ZI_HUHEADER {
+    grant
+        select
+            on
+                ZI_HUHEADER
+                    where
+                        Status = 'PICKING';
+                      
+//                      where
+//                        ( Status )                       
+//                      = aspect pfcg_auth ( ZHUAUTHOBJ, ZHU_STAT,  actvt = '03') 
+//                        and
+//                        Status = 'PICKING';
+
+//                        where 
+//                        1 = 1;
+}

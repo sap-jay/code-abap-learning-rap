@@ -1,0 +1,252 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: {
+    typeName: 'Manage WorkOrder',
+    typeNamePlural: 'Manage WorkOrder'
+  }
+}
+annotate view ZC_WORK_ORDER with
+{
+  @UI.facet: [ {
+    id: 'idIdentification',
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'WorkOrderData',
+    position: 10
+  }
+   ]
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM
+  },
+  { type: #FOR_ACTION, dataAction: 'sendInformation', label: 'Send Records' },
+    { type: #FOR_ACTION, dataAction: 'uploadExcel', label: 'Upload Excel' }
+   ]
+  @UI.identification: [
+        {
+            position: 10
+         }
+  ]
+  @UI.hidden: true
+  GuID;
+
+  @UI.lineItem: [ {
+    position: 10 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 10
+  } ]
+  OrigLand;
+
+  @UI.lineItem: [ {
+    position: 20 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 20
+  } ]
+  OrigWerks;
+
+  @UI.lineItem: [ {
+    position: 30 ,
+    importance: #MEDIUM,
+    label: 'WorkOrder'
+  } ]
+  @UI.identification: [ {
+    position: 30 ,
+    label: 'WorkOrder'
+  } ]
+  WorkOrder;
+
+  @UI.lineItem: [ {
+    position: 40 ,
+    importance: #MEDIUM,
+    label: 'WoItemNo'
+  } ]
+  @UI.identification: [ {
+    position: 40 ,
+    label: 'WoItemNo'
+  } ]
+  WoItemNo;
+
+
+  @UI.lineItem: [ { position: 50 ,
+                  importance: #MEDIUM,
+                  label: 'Show Material Details',
+                  type: #FOR_INTENT_BASED_NAVIGATION,
+                  semanticObjectAction: 'matdisp' } ]
+  @UI.identification: [ { position: 50 } ]
+  @UI.selectionField: [ { position: 10 } ]
+
+  @Consumption.semanticObject:'matmas'
+
+  Matnr;
+
+  @UI.lineItem: [ {
+    position: 60 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 60
+  } ]
+  MatGtin;
+
+  @UI.lineItem: [ {
+    position: 70 ,
+    importance: #MEDIUM,
+    label: 'MatRevlv'
+  } ]
+  @UI.identification: [ {
+    position: 70 ,
+    label: 'MatRevlv'
+  } ]
+  MatRevlv;
+
+  @UI.lineItem: [ {
+    position: 80 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 80
+  } ]
+  MatUnit;
+
+  @UI.lineItem: [ {
+    position: 90 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 90
+  } ]
+  MatCharg;
+
+  @UI.lineItem: [ {
+    position: 100 ,
+    importance: #MEDIUM,
+    label: 'MatSernr'
+  } ]
+  @UI.identification: [ {
+    position: 100 ,
+    label: 'MatSernr'
+  } ]
+  MatSernr;
+
+  @UI.lineItem: [ {
+    position: 110 ,
+    importance: #MEDIUM,
+    label: 'MatSernp'
+  } ]
+  @UI.identification: [ {
+    position: 110 ,
+    label: 'MatSernp'
+  } ]
+  MatSernp;
+
+  @UI.lineItem: [ {
+    position: 120 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 120
+  } ]
+  MatVfdat;
+
+  @UI.lineItem: [ {
+    position: 130 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 130
+  } ]
+  MatHsdat;
+
+  @UI.lineItem: [ {
+    position: 140 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 140
+  } ]
+  MatCoo;
+
+  @UI.lineItem: [ {
+    position: 150 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 150
+  } ]
+  MatPom;
+
+  @UI.lineItem: [ {
+    position: 160 ,
+    importance: #MEDIUM,
+    label: 'MatMaktx'
+  } ]
+  @UI.identification: [ {
+    position: 160 ,
+    label: 'MatMaktx'
+  } ]
+  MatMaktx;
+
+  @UI.lineItem: [ {
+    position: 170 ,
+    importance: #MEDIUM,
+    label: 'Activity'
+  } ]
+  @UI.identification: [ {
+    position: 170 ,
+    label: 'Activity'
+  } ]
+  Activity;
+
+  @UI.lineItem: [ {
+    position: 180 ,
+    importance: #MEDIUM,
+    label: 'ActQpa'
+  } ]
+  @UI.identification: [ {
+    position: 180 ,
+    label: 'ActQpa'
+  } ]
+  ActQpa;
+
+  @UI.lineItem: [ {
+    position: 190 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 190
+  } ]
+  ActUnit;
+
+  @UI.lineItem: [ {
+    position: 200 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 200
+  } ]
+  CreatedBy;
+
+  @UI.lineItem: [ {
+    position: 210 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 210
+  } ]
+  CreatedAt;
+
+  @UI.lineItem: [ {
+    position: 220 ,
+    importance: #MEDIUM
+  } ]
+  @UI.identification: [ {
+    position: 220
+  } ]
+  LastChangedBy;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+}

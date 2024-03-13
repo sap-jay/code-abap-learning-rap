@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service definition for ZC_WORK_ORDER'
+define service ZUI_WORK_ORDER_O4 {
+  expose ZC_WORK_ORDER as workorder;
+}

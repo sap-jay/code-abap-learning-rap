@@ -1,0 +1,59 @@
+unmanaged implementation in class zbp_i_huheader_u unique;
+
+define behavior for ZI_HUHeader_U alias huheader
+lock master
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create;
+  update;
+  delete;
+  association _huitem { create; }
+
+
+  field ( readonly ) GuidHu;
+
+  mapping for zgmhuhdr control zcs_zgmhuhdr
+    {
+      GuidHu  = guid_hu;
+      tanum   = tanum;
+      huident = huident;
+      lgnum   = lgnum;
+      letyp   = letyp;
+      kunnr   = kunnr;
+      scode   = scode;
+      status  = status;
+    }
+}
+
+define behavior for ZI_HUItem_U alias hustock
+implementation in class zbp_i_huitem_u unique
+lock dependent by _huheader
+authorization dependent by _huheader
+etag dependent by _huheader
+{
+  update;
+  delete;
+
+  field ( readonly ) GuidHu, GuidStock;
+  field ( mandatory ) Matnr, Charg;
+
+
+  mapping for zgmhuitm control zcs_zgmhuhdr
+    {
+      GuidStock          = guid_stock;
+      GuidHu             = guid_hu;
+      Matnr              = matnr;
+      Charg              = charg;
+      Quan               = quan;
+      Meins              = meins;
+      CurrencyCode       = currency_code;
+      Docid              = docid;
+      Docitmid           = docitmid;
+      CreatedBy          = created_by;
+      LastChangedBy      = last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+    }
+
+  association _huheader;
+}

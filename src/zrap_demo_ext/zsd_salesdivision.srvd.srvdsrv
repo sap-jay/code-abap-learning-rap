@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Definition for Sales Division'
+define service ZSD_SalesDivision {
+  expose ZCE_RAP_DIVISION as Division;
+}

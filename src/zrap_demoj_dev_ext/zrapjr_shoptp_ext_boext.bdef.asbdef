@@ -1,0 +1,20 @@
+extension implementation in class zbp_rapjr_shoptp_ext_boext unique;
+
+extend behavior for Shop
+{
+  validation zz_validateDeliverydate on save { create; field DeliveryDate; }
+  extend draft determine action Prepare
+  {
+    validation zz_validateDeliveryDate;
+  }
+  determination ZZ_setOverallStatus on modify { field OrderedItem; }
+
+
+  side effects { field OrderedItem affects field OrderItemPrice, field CurrencyCode; }
+
+
+  field(readonly) zz_feedback_zaa;
+  action(authorization : global, features : instance ) ZZ_ProvideFeedback  parameter ZRAP_AE_Feedback result[1] $self;
+
+
+}

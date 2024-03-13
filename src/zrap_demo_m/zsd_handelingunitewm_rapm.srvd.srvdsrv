@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition for HU App (EWM)'
+define service ZSD_HandelingUnitEwm_RAPM {
+  expose ZC_HUHeader as Header;
+  expose ZC_HUItem   as Item;
+}

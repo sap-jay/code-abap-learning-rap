@@ -1,0 +1,5 @@
+@EndUserText.label: 'Hierarchy: Read Only: Employee'
+@ObjectModel.leadingEntity.name: 'ZC_Employee_HR'
+define service ZUI_Employee_HR {
+  expose ZC_Employee_HR as Employee;
+}

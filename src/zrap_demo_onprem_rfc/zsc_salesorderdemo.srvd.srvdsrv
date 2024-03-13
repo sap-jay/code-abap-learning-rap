@@ -1,0 +1,5 @@
+@EndUserText.label: 'Sales Order Demo'
+@OData.schema.name: 'ZE2E100_SOL_2_SRV'
+define service ZSC_SALESORDERDEMO {
+  expose ZSALESORDERDEMO;
+}

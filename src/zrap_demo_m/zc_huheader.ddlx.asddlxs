@@ -1,0 +1,61 @@
+@Metadata.layer: #CORE
+@UI: {
+  headerInfo: { typeName: 'Handeling Unit (EWM)',
+                typeNamePlural: 'Handeling Units (EWM)',
+                title: { type: #STANDARD, label: 'Handeling Unit (EWM)', value: 'Huident' } },
+  presentationVariant: [{ sortOrder: [{ by: 'Huident', direction:  #DESC }] }] }
+
+annotate view ZC_HUHeader with
+{
+  @UI.facet: [ { id:              'Travel',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Handeling Unit',
+                 position:        10 },
+               { id:              'Item',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Handeling Unit Stock (Line Items)',
+                 position:        20,
+                 targetElement:   '_Item'} ]
+
+  @UI:{ identification: [{ position: 1, label: 'Handeling Unit UUID' }] }
+  GuidHu;
+  @UI: {  lineItem:       [ { position: 10, label: 'Handeling Unit'} ],
+          identification: [ { position: 10, label: 'Handeling Unit' } ],
+          selectionField: [ { position: 10 } ] }
+  Huident;
+  @UI: {  lineItem:       [ { position: 20, label: 'WareHouse Task' } ],
+          identification: [ { position: 20, label: 'WareHouse Task' } ],
+          selectionField: [ { position: 20 } ] }
+  Tanum;
+  @UI: {  lineItem:       [ { position: 30, label: 'WareHouse' } ],
+          identification: [ { position: 30, label: 'WareHouse' } ],
+          selectionField: [ { position: 30 } ] }
+
+  Lgnum;
+  @UI: {  lineItem:       [ { position: 40, label: 'HU Type' } ],
+          identification: [ { position: 40, label: 'HU Type' } ] }
+  Letyp;
+  @UI: {  lineItem:       [ { position: 50, label: 'Customer' } ],
+          identification: [ { position: 50, label: 'Customer' } ] }
+  Kunnr;
+
+  @UI: {  lineItem:       [ { position: 60, label: 'Status Code' },
+                          { type: #FOR_ACTION, dataAction: 'setHUStatus', label: 'Packed' }
+                        ],
+        identification: [ { position: 60, label: 'Status Code' },
+                          { type: #FOR_ACTION, dataAction: 'setHUStatus', label: 'Packed' }
+                        ] }
+  Scode;
+  @UI: {  lineItem:       [ { position: 70, label: 'Status Desc.' } ],
+      identification: [ { position: 70, label: 'Status Desc.' } ] }
+  Status;
+
+  @UI.hidden: true
+  LastChangedAt;
+
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+}
